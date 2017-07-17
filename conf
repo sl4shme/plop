@@ -1,0 +1,145 @@
+[DEFAULT]
+
+#
+# From freezer-dr
+#
+
+# Time to wait between different operations (integer value)
+wait = 10
+
+#
+# From oslo.log
+#
+debug = false
+log_file = /tmp/freezer_dr_pierre_3
+
+
+[fencer]
+driver = freezer_dr.fencers.drivers.dummy.driver.DummyFencer
+
+[evacuation]
+
+#
+# From freezer-dr
+#
+
+driver = freezer_dr.evacuators.drivers.vm_start.driver.VmStartEvacuator
+vm_config_file = /home/stack/pierre/vms.yaml
+#evacuate = all
+evacuate = some
+enable_fencing = False
+
+[keystone_authtoken]
+
+#
+# From freezer-dr
+#
+
+# OpenStack auth URI i.e. http://controller:5000 (string value)
+auth_uri = https://172.16.120.2:5000
+
+# OpenStack auth URL i.e. http://controller:35357/v3 (string value)
+auth_url = https://172.16.120.2:5000/v3
+
+# OpenStack auth plugin i.e. ( password, token, ...) password is the only
+# available plugin for the time being (string value)
+auth_plugin = password
+
+# OpenStack username (string value)
+username = admin
+
+# OpenStack Password (string value)
+password = dpug0HkI
+
+# OpenStack Project Name. (string value)
+project_name = admin
+
+# OpenStack domain Name. (string value)
+#domain_name = Default
+
+# OpenStack Project Domain id, default is Default (string value)
+# project_domain_id = <None>
+
+# OpenStack user Domain id, default is Default (string value)
+#user_domain_id = <None>
+
+# OpenStack Project Domain name, default is Default (string value)
+project_domain_name = Default
+
+# OpenStack user Domain name, default is Default (string value)
+user_domain_name = Default
+
+# OpenStack Authentication arguments you can pass it here as Key:Value,
+# Key1:Value1, ...  (dict value)
+kwargs = insecure:True
+
+[keystone_authtoken_slave]
+
+#
+# From freezer-dr
+#
+
+# OpenStack auth URI i.e. http://controller:5000 (string value)
+auth_uri = https://172.16.120.2:5000
+
+# OpenStack auth URL i.e. http://controller:35357/v3 (string value)
+auth_url = https://172.16.120.2:5000/v3
+
+# OpenStack auth plugin i.e. ( password, token, ...) password is the only
+# available plugin for the time being (string value)
+auth_plugin = password
+
+# OpenStack username (string value)
+username = admin
+
+# OpenStack Password (string value)
+password = dpug0HkI
+
+# OpenStack Project Name. (string value)
+project_name = demo
+
+# OpenStack domain Name. (string value)
+#domain_name = Default
+
+# OpenStack Project Domain id, default is Default (string value)
+# project_domain_id = <None>
+
+# OpenStack user Domain id, default is Default (string value)
+#user_domain_id = <None>
+
+# OpenStack Project Domain name, default is Default (string value)
+project_domain_name = Default
+
+# OpenStack user Domain name, default is Default (string value)
+user_domain_name = Default
+
+# OpenStack Authentication arguments you can pass it here as Key:Value,
+# Key1:Value1, ...  (dict value)
+kwargs = insecure:True
+
+
+[monitoring]
+
+#
+# From freezer-dr
+#
+
+# Driver used to get a status updates of compute nodes (string value)
+driver = freezer_dr.monitors.drivers.vms.driver.VMsDriver
+backend_name = vms
+
+[vms]
+aggregate = any
+vm_config_file = /home/stack/pierre/vms.yaml
+
+
+[notifiers]
+
+#
+# From freezer-dr
+#
+
+# Notification driver to load it to notify users if something went wrong
+# (string value)
+driver = freezer_dr.notifiers.drivers.dummy.dummy.DummyNotifier
+

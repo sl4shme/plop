@@ -1,0 +1,20 @@
+---
+plop:
+  fixed: false
+  floating: true
+  aggregate: any
+
+Scalr:
+  fixed: false
+  floating: true
+  aggregate: any
+#smtp-server:
+#  fixed: true
+#  floating: true
+#  aggregate: all
+#
+#chef-server-2:
+#  fixed: true
+#  floating: true
+#  aggregate: all
+
